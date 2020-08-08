@@ -5,10 +5,13 @@
 ### Ini adalah Screen Shoot program
 Dengan menggunakan XAMPP dan PHPMyAdmin sebagai tools pembantu.
 * Tampilan index.php
-![index](https://github.com/hnifmaghfur/Test-Bootcamp-Arkademy/blob/master/img/Tambah.png?raw=true)
+
+![index](https://github.com/hnifmaghfur/Test-Bootcamp-Arkademy/blob/master/img/index.png?raw=truee)
 
 * Tampilan edit.php
+
 ![edit](https://github.com/hnifmaghfur/Test-Bootcamp-Arkademy/blob/master/img/edit.png?raw=true)
 
 * Tampilan tambah.php
+
 ![tambah](https://github.com/hnifmaghfur/Test-Bootcamp-Arkademy/blob/master/img/Tambah.png?raw=true)
