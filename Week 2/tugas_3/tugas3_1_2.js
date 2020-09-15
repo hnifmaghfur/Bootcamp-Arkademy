@@ -28,7 +28,7 @@ let data = [
 let finding = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      a;
+      
     }, 3000);
   });
 };
