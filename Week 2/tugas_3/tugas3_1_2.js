@@ -1,34 +1,65 @@
 let data = [
   {
     id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz",
+    name: "Beras",
+    harga: 10000,
+    qty: 0,
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv",
+    name: "Terigu",
+    harga: 7500,
+    qty: 0,
   },
   {
     id: 3,
-    name: "Clementine Bauch",
-    username: "Samantha",
-    email: "Nathan@yesenia.net",
-  },
-  {
-    id: 4,
-    name: "Patricia Lebsack",
-    username: "Karianne",
-    email: "Julianne.OConner@kory.org",
+    name: "Gula",
+    harga: 15000,
+    qty: 0,
   },
 ];
 
-let finding = () => {
+let sembako = (callback, belanja) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      
-    }, 3000);
+      if (belanja) {
+        resolve(callback(0, 1, 5, 2));
+      } else {
+        reject(new Error("Tidak ada yang dibeli"));
+      }
+    }, 1000);
   });
 };
+
+let hitung = (indexBeras, indexTerigu, valueBeras, valueTerigu) => {
+  data.map((item, index) => {
+    if (index == indexBeras) {
+      item.qty = valueBeras;
+      console.log(
+        `Total belanja ${item.name} adalah Rp. ${item.harga * item.qty} Rupiah`
+      );
+    } else if (index == indexTerigu) {
+      item.qty = valueTerigu;
+      console.log(
+        `Total belanja ${item.name} adalah Rp. ${item.harga * item.qty} Rupiah`
+      );
+    } else {
+      console.log(`${item.name} tidak dibeli`);
+    }
+  });
+};
+
+// sembako(hitung, "kuy")
+//   .then((res) => res)
+//   .catch((err) => console.log(err.message));
+
+let nilaiSembako = async () => {
+  try {
+    let nilai = await sembako(hitung, null);
+    return nilai;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+nilaiSembako();
