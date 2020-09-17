@@ -31,21 +31,21 @@ const searchName = (cari, value) => {
 };
 
 //menggunakan then dan catch
-// searchName("ol", 2)
+// searchName("q", 2)
 //   .then((res) => {
 //     console.log(res);
 //   })
 //   .catch((err) => console.log(err.message));
 
 //menggunakan trycatch
-// let pencarian = async (kata, nilai) => {
-//   try {
-//     let result = await searchName(kata, nilai);
-//     // const diSlice = result.kata.slice(0, result.nilai);
-//     console.log(result);
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
+let pencarian = async (kata, nilai) => {
+  try {
+    let result = await searchName(kata, nilai);
+    // const diSlice = result.kata.slice(0, result.nilai);
+    console.log(result);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
 
-// pencarian("ol", 3);
+pencarian("q", 3);

@@ -23,7 +23,7 @@ let sembako = (callback, belanja) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (belanja) {
-        resolve(callback(0, 1, 5, 2));
+        resolve(callback(0, 1, 2, 1));
       } else {
         reject(new Error("Tidak ada yang dibeli"));
       }
@@ -49,13 +49,13 @@ let hitung = (indexBeras, indexTerigu, valueBeras, valueTerigu) => {
   });
 };
 
-// sembako(hitung, "kuy")
+// sembako(hitung, "ayo belanja")
 //   .then((res) => res)
 //   .catch((err) => console.log(err.message));
 
 let nilaiSembako = async () => {
   try {
-    let nilai = await sembako(hitung, null);
+    let nilai = await sembako(hitung, "kuy");
     return nilai;
   } catch (error) {
     console.log(error.message);
