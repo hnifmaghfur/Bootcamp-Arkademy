@@ -16,4 +16,4 @@ function checkPalindrom(palindrom) {
     console.log("Kata bukan palindrome.");
   }
 }
-checkPalindrom("hanif");
+checkPalindrom(0011);
