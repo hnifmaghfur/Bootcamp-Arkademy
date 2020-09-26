@@ -1,0 +1,22 @@
+Pemrogramman yang bersifat fungsional atau tersusun sehingga kode dibaca dari atas kebawah secara berurutan, tanpa ada loncatan dan pemrosesan dilakukan dari atas kebawah tanpa ada loncatan dalam fungsi-fungsinya.
+
+
+
+JS Function adalah fungsi yang menggunakan pemanggilan syntax "function" dan tidak bisa di gunakaan tanpa pemanggilan syntax, sedangkan arrow function adalah fungsi tanpa menggunakan syntax "function" sehingga pembuatanya lebih simpel dan lebih gampang, namun ada beberapa fungsi yang tidak bisa digunakan ketika menggunakan arrow function sehingga harus menggunakan JS function.
+
+
+JS.map adalah fungsi dimana digunakan untuk mempetakan data array sehingga dapat di olah, sama seperti JS.forEach namun perbedaan keduanya terletak dari proses pemetaan, ketika menggunakan JS.map proses pemetaan akan di simpan di array baru (duplikasi) sehingga tidak ada perubahan dalam data pertamanya, sedangkan menggunakan JS.forEach proses pemetaan menggunakan data peretama secara langsung sehingga ketika selesai penggunaan fungsi JS.forEach maka data pertamanya tidak sama dengan data sebelum di proses.
+
+
+functional programming adalah sebuah tehnik pemrograman yang terstruktur dan tertata secara rapi dari atas ke bawah, dan pemrosessan di lakukan dari atas kebawah juga, sehingga lebih mudah dalam mencari bug dalam programnya, namun penggunaan resource yang lebih banyak karena setiap penggunaan fungsi yang sama harus di tulis berulang kali, dibandingkan dengan object oriented programming atau OOP, tehnik Pemrogramman tidak beraturan, tidak tertata rapi, namun penggunaan memory lebih kecil karena OOP bersifat inheritence dimana ada pewarisan sifat dari program induk (parent) ke program sekunder (child) sehingga program child dapat menggunakan seluruh fungsi didalam parent tanpa membuat fungsi-fungsi atau program baru didalam program sekunder (child) tersebut.
+
+
+Asyncronous programming adalah pemrograman secara tidak beraturan/singkron sehingga setiap proses dapat terjadi penumpukan jika proses sebelumnya memiliki waktu delay atau kondisi yang mengharuskan proses itu delay maka proses selanjutnya akan dijalankan.
+Mengapa Asyncronous sangat penting untuk javascript, karena javascript adalah bahasa yang single-threaded, non-blocking sehingga sebuah proses dapat dijalankan sekali tanpa ada pemberhentian/non-blocking, dengan adanya Asyncronous programming membuat javascript dapat memjalankan proses berikutnya tanpa harus menunggu proses yang sedang delay.
+
+
+a === b adalah fungsi yang digunakan untuk menentukan kesamaan antara  secara presisi atau sama pasti dari itu tipe datanya maupun isi datanya , sehingga ketika kita ingin mengetahui typeof pada javascript kita tidak dapat menggunakan === karena penulisan tipe data pada javascript harus menggunakan petik ('') sedangkan petik('') menganalogikan tipe data berupa string, sehingga kita harus menggunakan fungsi == karena fungsi tersebut mengabaikan tipe data dari kedua data yang di bandingkan, dan hanya melihat isi/value data tersebut.
+
+monolithic arcitecture adalah arsitektur yang menggunakan 1 sistem untuk menjalankan semua pemrosesan data ke backend sehingga dengan penggunaan yang hanya 1 sistem menghasilkan cost/pengeluaran yang sedikit, sedangkan microservice arcitecture adalah arsitektur yang menggunakan banyak sistem untuk pemrosesan data ke backend sehingga untuk cost tergolong lebih besar, namun ketika sebuah data memerlukan maintenance/perbaikan maka data lain tidak akan terganggu karena berada di sistem yang berbeda.
+
+

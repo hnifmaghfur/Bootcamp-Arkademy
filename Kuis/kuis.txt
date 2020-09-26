@@ -1,0 +1,14 @@
+Program Start
+
+inisialisasi A = 5
+inisialisasi B = 9
+
+A = A + B
+B = A - B
+A = A - B
+
+print A
+print B
+
+Program Selesai
+        
