@@ -65,7 +65,8 @@ app.get("/users", (req, res) => {
 //post Method
 app.post("/users", (req, res) => {
   const {
-    name,
+    firstName,
+    lastName,
     phone,
     email,
     password,
@@ -75,7 +76,8 @@ app.post("/users", (req, res) => {
     pin,
   } = req.body;
   if (
-    name &&
+    firstName &&
+    lastName &&
     phone &&
     email &&
     password &&
@@ -85,7 +87,7 @@ app.post("/users", (req, res) => {
     pin
   ) {
     db.query(
-      `INSERT INTO users (name, phone, email, password, balance, verified, photo, pin) VALUES ('${name}', '${phone}','${email}','${password}', '${balance}', ${verified}, '${photo}', '${pin}')`,
+      `INSERT INTO users (firstName, lastName, phone, email, password, balance, verified, photo, pin) VALUES ('${firstName}','${lastName}', '${phone}','${email}','${password}', '${balance}', ${verified}, '${photo}', '${pin}')`,
       (err, result, fields) => {
         if (!err)
           res.status(201).send({
