@@ -113,6 +113,128 @@ app.post("/users", (req, res) => {
   }
 });
 
+//update method (patch)
+app.patch("/users/:id", (req, res) => {
+  const { id } = req.params;
+  const {
+    firstname = "",
+    lastname = "",
+    phone = "",
+    email = "",
+    password = "",
+    balance = "",
+    verified = "",
+    photo = "",
+    pin = "",
+  } = req.body;
+  if (
+    firstname.trim() ||
+    lastname.trim() ||
+    phone.trim() ||
+    email.trim() ||
+    password.trim() ||
+    balance.trim() ||
+    verified.trim() ||
+    photo.trim() ||
+    pin.trim()
+  ) {
+    db.query(`SELECT * FROM users WHERE id=${id}`, (err, result, fields) => {
+      if (!err) {
+        if (result.length) {
+          const data = Object.entries(req.body).map((item) => {
+            return parseInt(item[1]) > 0
+              ? `${item[0]} = ${item[1]}`
+              : `${item[0]} = ${item[1]}`;
+          });
+          let query = `UPDATE users SET ${data} WHERE id=${id}`;
+          db.query(query, (err, result, fields) => {
+            if (result.affectedRows) {
+              res.status(200).send({
+                succes: true,
+                message: `User ${id} succesfully updated`,
+              });
+            } else {
+              res.status(400).send({
+                succes: false,
+                message: `Failed update user.`,
+              });
+            }
+          });
+        } else {
+          res.status(400).send({
+            succes: false,
+            message: `Id not found`,
+          });
+        }
+      } else {
+        res.status(500).send({
+          success: false,
+          message: "Failed update user.",
+          data: [],
+        });
+      }
+    });
+  }
+});
+
+//update method (put)
+app.put("/users/:id", (req, res) => {
+  const { id } = req.params;
+  const {
+    name,
+    phone,
+    email,
+    password,
+    balance,
+    verified,
+    photo,
+    pin,
+  } = req.body;
+
+  if (
+    name &&
+    phone &&
+    email &&
+    password &&
+    balance &&
+    verified &&
+    photo &&
+    pin
+  ) {
+    let query = `UPDATE users SET
+    name = '${name}',
+    phone = '${phone}',
+    email = '${email}',
+    password = '${password}',
+    balance = '${balance}',
+    verified = ${verified},
+    photo = '${photo}',
+    pin = '${pin}'
+    where id=${id}`;
+    db.query(query, (err, result, fields) => {
+      if (!err)
+        res.status(201).send({
+          succes: true,
+          message: `Succes update user data ${id}`,
+          data: result,
+        });
+      else
+        res.status(500).send({
+          succes: false,
+          message: "internal server error",
+          data: [],
+        });
+      db.end();
+    });
+  } else {
+    res.status(400).send({
+      succes: false,
+      message: "all fiends must be filled",
+      data: [],
+    });
+  }
+});
+
 //delete method
 app.delete("/users/:id", (req, res) => {
   const { id } = req.params;
