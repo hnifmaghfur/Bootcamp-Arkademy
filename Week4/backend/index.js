@@ -7,7 +7,7 @@ const db = require("./src/db");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.send("Hello dunia");
+  db.query(`SELECT firstname, lastname`);
 });
 
 //get Method
