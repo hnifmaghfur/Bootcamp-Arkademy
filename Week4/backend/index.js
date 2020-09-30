@@ -141,22 +141,30 @@ app.patch("/users/:id", (req, res) => {
     db.query(`SELECT * FROM users WHERE id=${id}`, (err, result, fields) => {
       if (!err) {
         if (result.length) {
+          console.log(req.body);
           const data = Object.entries(req.body).map((item) => {
             return parseInt(item[1]) > 0
-              ? `${item[0]} = ${item[1]}`
-              : `${item[0]} = ${item[1]}`;
+              ? `${item[0]} = "${item[1]}"`
+              : `${item[0]} = "${item[1]}"`;
           });
+          console.log(data);
           let query = `UPDATE users SET ${data} WHERE id=${id}`;
           db.query(query, (err, result, fields) => {
-            if (result.affectedRows) {
+            console.log(result);
+            if (result.changedRows) {
               res.status(200).send({
                 succes: true,
                 message: `User ${id} succesfully updated`,
               });
+            } else if (result.affectedRows) {
+              res.status(400).send({
+                succes: false,
+                message: `User ${id} already updated.`,
+              });
             } else {
               res.status(400).send({
                 succes: false,
-                message: `Failed update user.`,
+                message: `Failed to update.`,
               });
             }
           });
