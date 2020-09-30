@@ -44,23 +44,23 @@ app.get("/users", (req, res) => {
   );
 });
 
-// app.get("/users", (req, res) => {
-//   db.query(`SELECT * FROM users`, (err, result, fields) => {
-//     if (!err) {
-//       res.status(200).send({
-//         success: true,
-//         massage: "Berhasil di Ambil",
-//         data: result,
-//       });
-//     } else {
-//       res.status(500).send({
-//         success: false,
-//         message: "Failed to fetch User Data.",
-//         data: [],
-//       });
-//     }
-//   });
-// });
+app.get("/users", (req, res) => {
+  db.query(`SELECT * FROM users`, (err, result, fields) => {
+    if (!err) {
+      res.status(200).send({
+        success: true,
+        massage: "Berhasil di Ambil",
+        data: result,
+      });
+    } else {
+      res.status(500).send({
+        success: false,
+        message: "Failed to fetch User Data.",
+        data: [],
+      });
+    }
+  });
+});
 
 //post Method
 app.post("/users", (req, res) => {
