@@ -43,7 +43,7 @@ const authModel = {
         const { password: hashedPassword, verified, email, id, name } = data[0];
         bcrypt.compare(password, hashedPassword, (error, result) => {
           if (result) {
-            if (verified) {
+            if (verified > 0) {
               const token = jwt.sign(
                 { email, id, name },
                 process.env.SECRET_KEY,
